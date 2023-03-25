@@ -1,0 +1,64 @@
+  public void showExam()
+        {
+            Hashtable AnswersUser = new Hashtable();
+            Console.WriteLine("show exam is here");
+            if(s.Finals is not null )
+            {
+                Console.WriteLine("Final is not null");
+
+                for (int i = 0; i < s.Finals.Length; i++)
+                {
+                    Console.WriteLine($"---Header OF Q{i+1} ---- \n  {this.subject.Finals[i].Header}");
+                    Console.WriteLine($"---body OF Q{i+1}   ---- \n {s.Finals[i].Body}");
+                    if (s.Finals[i].typeQistion==1)
+                    {
+                        Console.WriteLine("------ choose answers { (1)== true ||(2) false }-----");
+                        int x =int.Parse(Console.ReadLine());
+                        if (x == 1)
+                            AnswersUser.Add(i, "true");
+                        else
+                        {
+                            AnswersUser.Add(i, "false");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine(s.Finals[i].answer.Length);
+                        for (int n = 0; n < s.Finals[i].answer.Length; n++)
+                        {
+                            Console.Write($"------{s.Finals[i].answer[n]} ------ ");
+                        }
+                        Console.WriteLine("Enter Right Answers");
+                        AnswersUser.Add(i, Console.ReadLine());
+                    }
+                    Console.Clear();
+                }
+            }
+
+            //3
+
+
+
+            if(s.ExPractical is not null)
+            {
+                Console.WriteLine("practicals is not null");
+                for (int i = 0; i < s.ExPractical.Length; i++)
+                {
+                    Console.WriteLine($"---Header OF Q{i + 1} ---- \n  {s.ExPractical[i].Header}");
+                    Console.WriteLine($"---body OF Q{i + 1}   ---- \n {s.ExPractical[i].Body}");
+
+                        Console.WriteLine(s.ExPractical[i].answer.Length);
+                        for (int n = 0; n < s.ExPractical[i].answer.Length; n++)
+                        {
+                            Console.Write($"------( {s.ExPractical[i].answer[n]} ) ------ ");
+                        }
+                    Console.WriteLine("");
+                        Console.WriteLine("Enter Right Answers");
+                        AnswersUser.Add(i, Console.ReadLine());
+                    }
+              }
+    }
+}
+}
+
+
